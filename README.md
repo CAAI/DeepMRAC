@@ -20,9 +20,15 @@ Please note - to use DeepDixon, you further need to install FSL.
 
 The best performance will be obtained with GPU support (about 4 seconds, depending on GPU type), but CPU can also be used. Please install tensorflow rather than tensorflow-gpu (in requirements). The running time is about 15-20 minutes for CPU.
 
+## Installation
+Simply run the command below to install the scripts, download the models and install them. Installation directory will be at /opt/caai/bin/ and /opt/caai/share.
+Change the paths in the install.py script if you wish to install elsewhere.
+``
+python install.py
+``
+
 ## Running the script
-Change the root folder in the main script (on line 23) to where you put the main script.
-Run: python3 process_DeepUTE.py ﹤path to DICOM data﹥
+Run: process_DeepUTE.py ﹤path to DICOM data﹥
 
 The output will be a folder called DeepUTE/DeepDixon within the DICOM data folder.
 
