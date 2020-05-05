@@ -1,0 +1,7 @@
+numpy
+tensorflow-gpu==1.8.0
+keras
+pydicom==1.2.0
+nibabel
+nipype
+dicom2nifti
