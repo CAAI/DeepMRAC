@@ -6,9 +6,9 @@ DeepMRAC is a deep learning network for obtaining attenuation correction umaps. 
  - UTE
 both implemented for VB20P and VE11P in seperate models.
 
-Future version will also include T1w-MPRAGE. 
+Future release will also include T1w-MPRAGE. 
 
-##Contact: 
+## Contact: 
 claes.noehr.ladefoged@regionh.dk
 
 
