@@ -1,4 +1,4 @@
-# DeepMRAC
+﻿# DeepMRAC
 Deep learning based peudoCT generation from MRI
 
 DeepMRAC is a deep learning network for obtaining attenuation correction umaps. The network currently works with input images:
