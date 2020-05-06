@@ -29,7 +29,7 @@ if not os.path.exists('/opt/caai/share/DeepMRAC'):
 if not os.path.exists('/opt/caai/bin/process_DeepDixon_dicom.py'):
 	print("Installing run scripts")	
 	copyfile('scripts/process_DeepDixon_dicom.py', '/opt/caai/bin/process_DeepDixon_dicom.py')
-	copyfile('scripts/process_DeepUT_dicomE.py', '/opt/caai/bin/process_DeepUTE_dicom.py')
+	copyfile('scripts/process_DeepUTE_dicom.py', '/opt/caai/bin/process_DeepUTE_dicom.py')
 	copymode('scripts/process_DeepDixon_dicom.py', '/opt/caai/bin/process_DeepDixon_dicom.py')
 	copymode('scripts/process_DeepUTE_dicom.py', '/opt/caai/bin/process_DeepUTE_dicom.py')
 
