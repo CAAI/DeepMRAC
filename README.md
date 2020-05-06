@@ -48,11 +48,8 @@ The output will be a folder called DeepUTE/DeepDixon within the DICOM data folde
 ``
 from rhscripts.DeepMRAC import predict_DeepUTE, predict_DeepDixon
 
-# UTE
 pseudoCT_UTE = predict_DeepUTE(ute1,ute2)
-
-# Dixon
-pseudoCT_Dixon = predict_DeepUTE(ute1,ute2)
+pseudoCT_Dixon = predict_DeepUTE(inphase,outphase)
 ``
 
 ## Contact
