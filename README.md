@@ -26,6 +26,8 @@ The best performance will be obtained with GPU support (about 4 seconds, dependi
 Simply run the command below to install the scripts, download the models and install them. Installation directory will be at /opt/caai/bin/, /opt/caai/rhscripts/ and /opt/caai/share/.
 Change the paths in the install.py script and DeepMRAC.py script if you wish to install elsewhere.
 
+The script are written for Tensorflow >= 2.
+
 The models have been tested with Tensorflow 1.8 with Keras and Tensorflow 2.1 on Ubuntu 18.04 running TITAN V and RTX.
 
 ``
