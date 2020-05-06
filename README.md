@@ -1,5 +1,5 @@
 ﻿# DeepMRAC
-Deep learning based peudoCT generation from MRI
+Deep learning based peudoCT generation from MRI.
 
 DeepMRAC is a deep learning network for obtaining attenuation correction umaps. The network currently works with input images:
  - Dixon-VIBE
@@ -7,12 +7,12 @@ DeepMRAC is a deep learning network for obtaining attenuation correction umaps. 
 
 All versions are implemented for VB20P and VE11P in seperate models.
 
-Future release will also include T1w MPRAGE. 
+Current realease only includes VE11P models. Future release will also include VB20P and models for T1w MPRAGE. 
 
 ## Requirements
-First, if you need to use GPU, you need to install the GPU, CUDA and cuDNN toolkits. See https://www.tensorflow.org/install/gpu.
+Install appropriate GPU, CUDA and cuDNN toolkits. See https://www.tensorflow.org/install/gpu.
 
-To install the required software tools, run:
+To install the required software tools using pip, run:
 
 ```
 pip install -r requirements.txt
@@ -20,19 +20,18 @@ pip install -r requirements.txt
 
 Please note - to use DeepDixon, you further need to install FSL.
 
-The best performance will be obtained with GPU support (about 4 seconds, depending on GPU type), but CPU can also be used. Please install tensorflow rather than tensorflow-gpu (in requirements). The running time is about 15-20 minutes for CPU.
+The runtime with a decent GPU (e.g. Titan V) is about 4 seconds. The running time is about 15-20 minutes for CPU.
 
 ## Installation
-Simply run the command below to install the scripts, download the models and install them. Installation directory will be at /opt/caai/bin/, /opt/caai/rhscripts/ and /opt/caai/share/.
-Change the paths in the install.py script and DeepMRAC.py script if you wish to install elsewhere.
-
-The script are written for Tensorflow >= 2.
-
-The models have been tested with Tensorflow 1.8 with Keras and Tensorflow 2.1 on Ubuntu 18.04 running TITAN V and RTX.
-
+To install the scripts and models:
 ``
 python install.py
 ``
+
+Installation will place the run scripts at /opt/caai/bin/ and /opt/caai/rhscripts/, and the models at /opt/caai/share/.
+The folders will be automatically created. Change the paths in the install.py script and DeepMRAC.py script if you wish to install elsewhere.
+
+DeepMRAC are written for Tensorflow >= 2. The models have been tested with Tensorflow 2.1 as well as Tensorflow 1.8 (with Keras 2.2.4) on Ubuntu 18.04 running TITAN V and RTX.
 
 ## Running the script
 
