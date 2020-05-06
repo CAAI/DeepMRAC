@@ -18,7 +18,7 @@ import pydicom as dicom
 import nibabel as nib
 import dicom2nifti
 from nipype.interfaces.fsl import FLIRT
-from DeepMRAC import predict_DeepDixon
+from rhscripts.DeepMRAC import predict_DeepDixon
 import tempfile
 
 """ Settings """

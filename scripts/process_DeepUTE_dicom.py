@@ -13,7 +13,7 @@ Output: Folder with dicom files of MRAC DeepUTE within input folder path
 """
 
 import argparse, os, shutil, datetime
-from DeepMRAC import predict_DeepUTE
+from rhscripts.DeepMRAC import predict_DeepUTE
 import numpy as np
 import pydicom as dicom  
 import tempfile
@@ -169,5 +169,10 @@ if __name__ == "__main__":
     
     # Cleanup
     shutil.rmtree(tmpdir)
+    if os.path.exists('inphase_flirt.mat'):
+        os.remove('inphase_flirt.mat')
+        os.remove('opposedphase_flirt.mat')
+        os.remove('DeepDixon_flirt.mat')
+    
     
     

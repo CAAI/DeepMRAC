@@ -76,8 +76,8 @@ Predicts the DeepUTE pCT image
 def predict_DeepUTE(ute1,ute2):
 
     # Load model
-    model_h5 = ['models/DeepUTE/DeepUTE_VE11P_model1_TF2.h5'] # CHANGED TO THIS VERSION 06-03-2019]
-    model = tf.keras.models.load_model(model_h5)
+    model_h5 = '/opt/caai/share/DeepMRAC/models/DeepUTE/DeepUTE_VE11P_model1_TF2.h5' # CHANGED TO THIS VERSION 06-03-2019]
+    model = tf.keras.models.load_model(model_h5,compile=False)
     
     # Load all patches
     patches = get_patches_znorm(ute1,ute2,normalize_both=False)
@@ -90,8 +90,8 @@ Predicts the DeepUTE pCT image
 def predict_DeepDixon(inphase,outphase):
 
     # Load model
-    model_h5 = ['models/DeepDixon/DeepDixon_VE11P_model1_TF2.h5'] # CHANGED TO THIS VERSION 06-03-2019]
-    model = tf.keras.models.load_model(model_h5)
+    model_h5 = '/opt/caai/share/DeepMRAC/models/DeepDixon/DeepDixon_VE11P_model1_TF2.h5' # CHANGED TO THIS VERSION 06-03-2019]
+    model = tf.keras.models.load_model(model_h5,compile=False)
     
     # Load all patches
     patches = get_patches_znorm(inphase,outphase,normalize_both=True)
