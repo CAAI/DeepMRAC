@@ -13,17 +13,20 @@ Future release will also include T1w MPRAGE.
 First, if you need to use GPU, you need to install the GPU, CUDA and cuDNN toolkits. See https://www.tensorflow.org/install/gpu.
 
 To install the required software tools, run:
-``
-pip3 install -r requirements.txt
-``
+
+```
+pip install -r requirements.txt
+```
 
 Please note - to use DeepDixon, you further need to install FSL.
 
 The best performance will be obtained with GPU support (about 4 seconds, depending on GPU type), but CPU can also be used. Please install tensorflow rather than tensorflow-gpu (in requirements). The running time is about 15-20 minutes for CPU.
 
 ## Installation
-Simply run the command below to install the scripts, download the models and install them. Installation directory will be at /opt/caai/bin/ and /opt/caai/share.
-Change the paths in the install.py script if you wish to install elsewhere.
+Simply run the command below to install the scripts, download the models and install them. Installation directory will be at /opt/caai/bin/, /opt/caai/rhscripts/ and /opt/caai/share/.
+Change the paths in the install.py script and DeepMRAC.py script if you wish to install elsewhere.
+
+The models have been tested with Tensorflow 1.8 with Keras and Tensorflow 2.1 on Ubuntu 18.04 running TITAN V and RTX.
 
 ``
 python install.py
@@ -32,15 +35,10 @@ python install.py
 ## Running the script
 
 ### Using DICOM input data
-``
+```
 process_DeepUTE_dicom.py ﹤path to DICOM data﹥
-``
-
-or 
-
-``
 process_DeepUTE_dicom.py ﹤path to DICOM data﹥
-``
+```
 
 The output will be a folder called DeepUTE/DeepDixon within the DICOM data folder.
 
@@ -48,7 +46,7 @@ The output will be a folder called DeepUTE/DeepDixon within the DICOM data folde
 ```python
 from rhscripts.DeepMRAC import predict_DeepUTE, predict_DeepDixon
 pseudoCT_UTE = predict_DeepUTE(ute1,ute2)
-pseudoCT_Dixon = predict_DeepUTE(inphase,outphase)
+pseudoCT_Dixon = predict_DeepDixon(inphase,outphase)
 ```
 
 ## Contact
