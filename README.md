@@ -31,15 +31,6 @@ python install.py
 
 ## Running the script
 
-### Using python function ( with pre-loaded data )
-``
-from rhscripts.DeepMRAC import predict_DeepUTE, predict_DeepDixon
-
-pseudoCT_UTE = predict_DeepUTE(ute1,ute2)
-
-pseudoCT_Dixon = predict_DeepDixon(inphase,outphase)
-``
-
 ### Using DICOM input data
 ``
 process_DeepUTE_dicom.py ﹤path to DICOM data﹥
@@ -54,13 +45,11 @@ process_DeepUTE_dicom.py ﹤path to DICOM data﹥
 The output will be a folder called DeepUTE/DeepDixon within the DICOM data folder.
 
 ### Using python function ( with pre-loaded data )
-``
+```python
 from rhscripts.DeepMRAC import predict_DeepUTE, predict_DeepDixon
-
 pseudoCT_UTE = predict_DeepUTE(ute1,ute2)
-
 pseudoCT_Dixon = predict_DeepUTE(inphase,outphase)
-``
+```
 
 ## Contact
 Claes Ladefoged, Rigshospitalet, Copenhagen, Denmark
