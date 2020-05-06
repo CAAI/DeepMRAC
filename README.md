@@ -37,7 +37,7 @@ python install.py
 ### Using DICOM input data
 ```
 process_DeepUTE_dicom.py ﹤path to DICOM data﹥
-process_DeepUTE_dicom.py ﹤path to DICOM data﹥
+process_DeepDixon_dicom.py ﹤path to DICOM data﹥
 ```
 
 The output will be a folder called DeepUTE/DeepDixon within the DICOM data folder.

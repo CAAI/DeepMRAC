@@ -1,6 +1,5 @@
 numpy
-tensorflow-gpu==1.8.0
-keras
+tensorflow>=2
 pydicom==1.2.0
 nibabel
 nipype
