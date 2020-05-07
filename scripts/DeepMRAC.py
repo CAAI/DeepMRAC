@@ -25,21 +25,29 @@ def cutup(data, blck, strd):
 """
 Return all combinations of 192x192x16 patches from each image with stride 2
 """
-def get_patches_znorm(vol1,vol2,normalize_both=True):
+def get_patches_znorm(vol1,vol2=None,normalize_both=True):
     mean_vol1, std_vol1 = ( np.mean(vol1[np.where(vol1>0)]), np.std(vol1[np.where(vol1>0)]) )
-    mean_vol2, std_vol2 = ( np.mean(vol2[np.where(vol2>0)]), np.std(vol2[np.where(vol2>0)]) )
+    
+    if vol2:
+        mean_vol2, std_vol2 = ( np.mean(vol2[np.where(vol2>0)]), np.std(vol2[np.where(vol2>0)]) )
     
     # STANDARDIZE
     vol1 = np.true_divide( vol1 - mean_vol1, std_vol1 ) if normalize_both else np.true_divide( vol1 - mean_vol2, std_vol2 )
-    vol2 = np.true_divide( vol2 - mean_vol2, std_vol2 )
+    if vol2:
+        vol2 = np.true_divide( vol2 - mean_vol2, std_vol2 )
 
     patches_vol1 = cutup(vol1,(16,192,192),(2,1,1))
-    patches_vol2 = cutup(vol2,(16,192,192),(2,1,1))
+    if vol2:
+        patches_vol2 = cutup(vol2,(16,192,192),(2,1,1))
 
     ijk = patches_vol1.shape[0]*patches_vol1.shape[1]*patches_vol1.shape[2]
-    selected_patches = np.empty((ijk,16,192,192,2), dtype='float32')
-    selected_patches[:,:,:,:,0] = np.reshape(patches_vol1,(ijk,16,192,192))
-    selected_patches[:,:,:,:,1] = np.reshape(patches_vol2,(ijk,16,192,192))
+    
+    if vol2:
+        selected_patches = np.empty((ijk,16,192,192,2), dtype='float32')
+        selected_patches[:,:,:,:,0] = np.reshape(patches_vol1,(ijk,16,192,192))
+        selected_patches[:,:,:,:,1] = np.reshape(patches_vol2,(ijk,16,192,192))
+    else:
+        selected_patches = np.reshape(patches_vol1,(ijk,16,192,192,1)).astype('float32')
 
     return selected_patches
 
@@ -73,10 +81,17 @@ def predict(model,patches):
 """
 Predicts the DeepUTE pCT image
 """
-def predict_DeepUTE(ute1,ute2):
+def predict_DeepUTE(ute1,ute2,version='VE11P'):
 
     # Load model
-    model_h5 = '/opt/caai/share/DeepMRAC/models/DeepUTE/DeepUTE_VE11P_model1_TF2.h5' # CHANGED TO THIS VERSION 06-03-2019]
+    if version == 'VE11P':
+        model_h5 = '/opt/caai/share/DeepMRAC/models/DeepUTE/DeepUTE_VE11P_model1_TF2.h5' # CHANGED TO THIS VERSION 06-03-2019]
+    elif version == 'VB20P':
+        model_h5 = '/opt/caai/share/DeepMRAC/models/DeepUTE/DeepUTE_VB20P_TF2.h5' # CHANGED TO THIS VERSION 06-03-2019]
+    else:
+        print('Incorrect software version - no model found')
+        return None
+    
     model = tf.keras.models.load_model(model_h5,compile=False)
     
     # Load all patches
@@ -87,13 +102,41 @@ def predict_DeepUTE(ute1,ute2):
 """
 Predicts the DeepUTE pCT image
 """
-def predict_DeepDixon(inphase,outphase):
+def predict_DeepDixon(inphase,outphase,version='VE11P'):
 
     # Load model
-    model_h5 = '/opt/caai/share/DeepMRAC/models/DeepDixon/DeepDixon_VE11P_model1_TF2.h5' # CHANGED TO THIS VERSION 06-03-2019]
+    if version == 'VE11P':
+        model_h5 = '/opt/caai/share/DeepMRAC/models/DeepDixon/DeepDixon_VE11P_model1_TF2.h5' # CHANGED TO THIS VERSION 06-03-2019]
+    elif version == 'VB20P':
+        model_h5 = '/opt/caai/share/DeepMRAC/models/DeepDixon/DeepDixon_VB20P_TF2.h5' # CHANGED TO THIS VERSION 06-03-2019]
+    else:
+        print('Incorrect software version - no model found')
+        return None
+    
     model = tf.keras.models.load_model(model_h5,compile=False)
     
     # Load all patches
     patches = get_patches_znorm(inphase,outphase,normalize_both=True)
+    
+    return predict(model,patches)
+
+"""
+Predicts the DeepT1 pCT image
+"""
+def predict_DeepT1(t1,version='VE11P'):
+
+    # Load model
+    if version == 'VE11P':
+        model_h5 = '/opt/caai/share/DeepMRAC/models/DeepT1/DeepT1_VE11P_model1_TF2.h5' # CHANGED TO THIS VERSION 06-03-2019]
+    elif version == 'VB20P':
+        model_h5 = '/opt/caai/share/DeepMRAC/models/DeepT1/DeepT1_VB20P_TF2.h5' # CHANGED TO THIS VERSION 06-03-2019]
+    else:
+        print('Incorrect software version - no model found')
+        return None
+    
+    model = tf.keras.models.load_model(model_h5,compile=False)
+    
+    # Load all patches
+    patches = get_patches_znorm(t1)
     
     return predict(model,patches)

@@ -18,7 +18,7 @@ if not os.path.exists('/opt/caai/rhscripts'):
 # Download models
 if not os.path.exists('models.zip'):
     print('Downloading models for DeepMRAC')
-    url = "http://resolute.pet.rh.dk:8000/models.zip"
+    url = "http://resolute.pet.rh.dk:8000/models_07mar2020.zip"
     wget.download(url,'models.zip')
     print("")
 
@@ -36,6 +36,9 @@ if not os.path.exists('/opt/caai/bin/process_DeepDixon_dicom.py'):
     
     copyfile('scripts/process_DeepUTE_dicom.py', '/opt/caai/bin/process_DeepUTE_dicom.py')
     copymode('scripts/process_DeepUTE_dicom.py', '/opt/caai/bin/process_DeepUTE_dicom.py')
+    
+    copyfile('scripts/process_DeepT1_dicom.py', '/opt/caai/bin/process_DeepT1_dicom.py')
+    copymode('scripts/process_DeepT1_dicom.py', '/opt/caai/bin/process_DeepT1_dicom.py')
     
     copyfile('scripts/DeepMRAC.py', '/opt/caai/rhscripts/DeepMRAC.py')
     copymode('scripts/DeepMRAC.py', '/opt/caai/rhscripts/DeepMRAC.py')
