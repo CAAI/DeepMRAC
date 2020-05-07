@@ -37,11 +37,10 @@ Add /opt/caai/ to PYTHONPATH and /opt/caai/bin to PATH to use the scripts from a
 
 Example:
 
-``
+```
 export PATH=$PATH:/opt/caai/bin
-
 export PYTHONPATH=$PYTHONPATH:/opt/caai
-``
+```
 
 DeepMRAC are written for Tensorflow >= 2. The models have been tested with Tensorflow 2.1 as well as Tensorflow 1.8 (with Keras 2.2.4) on Ubuntu 18.04 running TITAN V and RTX.
 
