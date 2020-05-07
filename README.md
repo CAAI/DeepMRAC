@@ -30,10 +30,17 @@ To install the scripts and models:
 python install.py
 ``
 
-Installation will place the run scripts at /opt/caai/bin/ and /opt/caai/rhscripts/, and the models at /opt/caai/share/.
+Installation will place the run scripts at /opt/caai/bin/ and /opt/caai/rhscripts/, and the models at /opt/caai/share/. Make sure to have write access to /opt.
 The folders will be automatically created. Change the paths in the install.py script and DeepMRAC.py script if you wish to install elsewhere.
 
 Add /opt/caai/ to PYTHONPATH and /opt/caai/bin to PATH to use the scripts from anywhere.
+
+Example:
+
+``
+export PATH=$PATH:/opt/caai/bin
+export PYTHONPATH=$PYTHONPATH:/opt/caai
+``
 
 DeepMRAC are written for Tensorflow >= 2. The models have been tested with Tensorflow 2.1 as well as Tensorflow 1.8 (with Keras 2.2.4) on Ubuntu 18.04 running TITAN V and RTX.
 
