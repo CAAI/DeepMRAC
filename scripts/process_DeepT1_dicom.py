@@ -178,6 +178,17 @@ def convert_to_DCM(DeepX,patient,folder_outname):
     # Convert the files
     to_dcm(DeepX,os.path.join(tmpdir,'dicom'),outname)
 
+""" 
+Function to check output
+"""
+
+def check_output(x):
+    try:
+        x.shape
+        return True
+    except:
+        return False
+    
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description='Predict using DeepDixon.')
@@ -204,8 +215,8 @@ if __name__ == "__main__":
     # Predict
     if verbose:
         print("Predicting DeepT1 using %s model" % args.version)
-    DeepX = predict_DeepT1(img)
-    if DeepX.any() == None:
+    DeepX = predict_DeepT1(img,args.version)
+    if not check_output(DeepX):
         shutil.rmtree(tmpdir)
         exit(-1)
     

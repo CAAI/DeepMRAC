@@ -20,7 +20,8 @@ import tempfile
 
 """ Settings """
 tmpdir = ''
-    
+verbose = False
+
 """
 Sort the files in the input folder based on series and instance number.
 Store the files in a temporary folder
@@ -145,11 +146,24 @@ def convert_to_DCM(DeepX,patient,folder_outname):
     # Convert the files
     to_dcm(DeepX,os.path.join(tmpdir,utes[2]),outname)
 
+""" 
+Function to check output
+"""
+
+def check_output(x):
+    try:
+        x.shape
+        return True
+    except:
+        return False
+    
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description='Predict using DeepUTE.')
     parser.add_argument("patient", help="Path to patient.")
     parser.add_argument("--outname", help="Name for output folder. ", type=str)
+    parser.add_argument("--version", help="Software version used to train the model (VB20P or VE11P) Default: VE11P. ", type=str, default='VE11P')
+    parser.add_argument("-v", "--verbose", action="store_true")
     args = parser.parse_args()
 
     # Create temporary folder    
@@ -162,7 +176,16 @@ if __name__ == "__main__":
     ute1, ute2 = load_data()
     
     # Predict
-    DeepX = predict_DeepUTE(ute1,ute2)
+    if verbose:
+        print("Predicting DeepUTE using %s model" % args.version)
+    DeepX = predict_DeepUTE(ute1,ute2,args.version)
+    if not check_output(DeepX):
+        if os.path.exists('inphase_flirt.mat'):
+            os.remove('inphase_flirt.mat')
+            os.remove('opposedphase_flirt.mat')
+            os.remove('DeepDixon_flirt.mat')
+        shutil.rmtree(tmpdir)
+        exit(-1)
     
     # Convert to DICOM
     convert_to_DCM(DeepX,args.patient,args.outname)

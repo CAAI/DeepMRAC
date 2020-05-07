@@ -217,11 +217,23 @@ def convert_to_DCM(DeepX,patient,folder_outname):
     # Convert the files
     to_dcm(DeepX,os.path.join(tmpdir,datasets[2]),outname)
 
+""" 
+Function to check output
+"""
+
+def check_output(x):
+    try:
+        x.shape
+        return True
+    except:
+        return False
+    
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description='Predict using DeepDixon.')
     parser.add_argument("patient", help="Path to patient.")
     parser.add_argument("--outname", help="Name for output folder. ", type=str)
+    parser.add_argument("--version", help="Software version used to train the model (VB20P or VE11P) Default: VE11P. ", type=str, default='VE11P')
     parser.add_argument("-v", "--verbose", action="store_true")
     args = parser.parse_args()
     
@@ -240,7 +252,12 @@ if __name__ == "__main__":
     opp_phase_rsl,in_phase_rsl = resample_images(opp_phase.get_fdata(),in_phase.get_fdata())
     
     # Predict
-    DeepX = predict_DeepDixon(in_phase_rsl, opp_phase_rsl)
+    if verbose:
+        print("Predicting DeepT1 using %s model" % args.version)
+    DeepX = predict_DeepDixon(in_phase_rsl, opp_phase_rsl, args.version)
+    if not check_output(DeepX):
+        shutil.rmtree(tmpdir)
+        exit(-1)
     
     # Reshape image to umap resolution
     DeepX = resample_to_umap(DeepX, in_phase)
