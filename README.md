@@ -56,19 +56,19 @@ pseudoCT_Dixon = predict_DeepDixon(inphase,outphase)
 pseudoCT_T1 = predict_DeepT1(t1)
 ```
 
-## How the model was trained
+## How the models were trained
 ### Patients
-The models were trained solely using Siemens Biograph mMR data from two software versions (VB20P and VE11P). We expect that DeepT1 should work for T1w MPRAGE sequences, but this was not thoroughly tested. We require that the input images are aligned and resampled the same way the models were trained when the models are used for inference.
+The models were trained solely using Siemens Biograph mMR data from two software versions (VB20P and VE11P). We expect that DeepT1 should work for T1w MPRAGE sequences from other scanners, but this was not thoroughly tested. We require that the input images are aligned and resampled the same way the models were trained when the models are used for inference.
 
-The VB20P models was trained and validated using *800+ subjects*. The VE11P models are fine-tuned from the VB20P models using *200+ subjects*.
+The VB20P models was trained and validated using **800+ subjects**. The VE11P models are fine-tuned from the VB20P models using **200+ subjects**.
 
 ### Hardware
 The models were trained in two rounds.
 
 The first set of models were trained using NVIDIA Titan V or Titan RTX GPU on a desktop computer running Ubuntu 18.04.
 
-The second set of models were trained after a collaboration with IBM was established. 
-The models were trained on a *POWER AC922* computer with *2 NVIDIA Tesla V100 16GB*. The computer from IBM allowed an increased batch size used during training (12 vs 3 previously used).
+The second set of models were trained after a collaboration with **IBM** was established. 
+The models were trained on a *POWER AC922* computer with **2 NVIDIA Tesla V100 16GB**. The computer from IBM allowed an increased batch size used during training (12 vs 3 previously used).
 
 ## Contact
 Claes Ladefoged, Rigshospitalet, Copenhagen, Denmark
