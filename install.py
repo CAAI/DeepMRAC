@@ -8,6 +8,8 @@ import os
 
 # Setup folders
 print("Setting up install directories at /opt/caai")
+if not os.path.exists('/opt/caai'):
+    Path('/opt/caai').mkdir(parents=True, exist_ok=True)
 if not os.path.exists('/opt/caai/share'):
     Path('/opt/caai/share').mkdir(parents=True, exist_ok=True)
 if not os.path.exists('/opt/caai/bin'):
