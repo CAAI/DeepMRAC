@@ -39,6 +39,7 @@ Example:
 
 ``
 export PATH=$PATH:/opt/caai/bin
+
 export PYTHONPATH=$PYTHONPATH:/opt/caai
 ``
 
