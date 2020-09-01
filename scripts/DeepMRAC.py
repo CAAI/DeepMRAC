@@ -96,7 +96,7 @@ def predict_DeepUTE(ute1,ute2,version='VE11P'):
 
     # Load model
     if version == 'VE11P':
-        model_h5 = '/opt/caai/share/DeepMRAC/models/DeepUTE/DeepUTE_VE11P_model1_TF2.h5' # CHANGED TO THIS VERSION 06-03-2019]
+        model_h5 = '/opt/caai/share/DeepMRAC/models/DeepUTE/DeepUTE_VE11P_model1_TF2.h5' # UPDATE MODEL 01-09-2020]
     elif version == 'VB20P':
         model_h5 = '/opt/caai/share/DeepMRAC/models/DeepUTE/DeepUTE_VB20P_TF2.h5' # CHANGED TO THIS VERSION 06-03-2019]
     else:
@@ -117,7 +117,7 @@ def predict_DeepDixon(inphase,outphase,version='VE11P'):
 
     # Load model
     if version == 'VE11P':
-        model_h5 = '/opt/caai/share/DeepMRAC/models/DeepDixon/DeepDixon_VE11P_model1_TF2.h5' # CHANGED TO THIS VERSION 06-03-2019]
+        model_h5 = '/opt/caai/share/DeepMRAC/models/DeepDixon/DeepDixon_VE11P_model1_TF2.h5' # UPDATE MODEL 01-09-2020]
     elif version == 'VB20P':
         model_h5 = '/opt/caai/share/DeepMRAC/models/DeepDixon/DeepDixon_VB20P_TF2.h5' # CHANGED TO THIS VERSION 06-03-2019]
     else:
@@ -138,7 +138,7 @@ def predict_DeepT1(t1,version='VE11P'):
 
     # Load model
     if version == 'VE11P':
-        model_h5 = '/opt/caai/share/DeepMRAC/models/DeepT1/DeepT1_VE11P_model1_TF2.h5' # CHANGED TO THIS VERSION 06-03-2019]
+        model_h5 = '/opt/caai/share/DeepMRAC/models/DeepT1/DeepT1_VE11P_model1_TF2.h5' # UPDATE MODEL 01-09-2020]
     elif version == 'VB20P':
         model_h5 = '/opt/caai/share/DeepMRAC/models/DeepT1/DeepT1_VB20P_TF2.h5' # CHANGED TO THIS VERSION 06-03-2019]
     else:

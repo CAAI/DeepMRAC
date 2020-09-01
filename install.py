@@ -20,7 +20,7 @@ if not os.path.exists('/opt/caai/rhscripts'):
 # Download models
 if not os.path.exists('models.zip'):
     print('Downloading models for DeepMRAC')
-    url = "http://resolute.pet.rh.dk:8000/models_07mar2020.zip"
+    url = "http://resolute.pet.rh.dk:8000/models_01sep2020.zip"
     wget.download(url,'models.zip')
     print("")
 
