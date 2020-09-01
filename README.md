@@ -70,16 +70,11 @@ The models were trained solely using Siemens Biograph mMR data from two software
 The VB20P models was trained and validated using **800+ subjects**. The VE11P models are fine-tuned from the VB20P models using **200+ subjects**.
 
 ### Hardware
-The models were trained in two rounds.
-
-The first set of models were trained using NVIDIA Titan V or Titan RTX GPU on a desktop computer running Ubuntu 18.04.
-
-The second set of models were trained after a collaboration with **IBM** was established. 
-The models were trained on a *POWER AC922* computer with **2 NVIDIA Tesla V100 16GB**. The computer from IBM allowed an increased batch size used during training (12 vs 3 previously used).
+The models were trained on a *POWER AC922* computer with **4 NVIDIA Tesla V100 32GB**. The computer from IBM allowed an increased batch size used during training (12 vs 3 previously used).
 
 ## Contact
 Claes Ladefoged, Rigshospitalet, Copenhagen, Denmark
 claes.noehr.ladefoged@regionh.dk
 
 ## Citation
-The publication has been submitted for review - please contact claes.noehr.ladefoged@regionh.dk for details on citations in the mean time
+Ladefoged CN, Hansen AE, Henriksen OM, et al. AI-driven attenuation correction for brain PET/MRI: Clinical evaluation of a dementia cohort and importance of the training group size. Published online ahead of print, 2020 Aug 1. Neuroimage. 2020;222:117221. [doi:10.1016/j.neuroimage.2020.117221](https://www.sciencedirect.com/science/article/pii/S1053811920307072)
