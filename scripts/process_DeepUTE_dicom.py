@@ -187,10 +187,5 @@ if __name__ == "__main__":
     
     # Cleanup
     shutil.rmtree(tmpdir)
-    if os.path.exists('inphase_flirt.mat'):
-        os.remove('inphase_flirt.mat')
-        os.remove('opposedphase_flirt.mat')
-        os.remove('DeepDixon_flirt.mat')
-    
     
     

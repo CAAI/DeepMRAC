@@ -44,6 +44,14 @@ export PYTHONPATH=$PYTHONPATH:/opt/caai
 
 DeepMRAC are written for Tensorflow >= 2. The models have been tested with Tensorflow 2.1 as well as Tensorflow 1.8 (with Keras 2.2.4) on Ubuntu 18.04 running TITAN V and RTX.
 
+## Updating the script
+Download the latest version of the code, delete the old models and run installation again.
+```
+git pull
+rm -rf models.zip /opt/caai/share/DeepAC
+python install.py
+```
+
 ## Running the script
 
 ### Using DICOM input data
@@ -56,6 +64,8 @@ process_DeepT1_dicom.py < path to DICOM data >
 The output will be a folder called DeepUTE/DeepDixon/DeepT1 within the DICOM data folder.
 
 ### Using python function ( with pre-loaded data )
+**NOTE** The data for Dixon (inphase and outphase) and T1 must be preprocessed to isotropic voxel size on a 192x192 matrix. See the process_X_dicom.py scripts for details.
+
 ```python
 from rhscripts.DeepMRAC import predict_DeepUTE, predict_DeepDixon, predict_DeepT1
 pseudoCT_UTE = predict_DeepUTE(ute1,ute2)
@@ -77,4 +87,13 @@ Claes Ladefoged, Rigshospitalet, Copenhagen, Denmark
 claes.noehr.ladefoged@regionh.dk
 
 ## Citation
+Please cite the main method manuscript when using our method.
+
 Ladefoged CN, Hansen AE, Henriksen OM, et al. AI-driven attenuation correction for brain PET/MRI: Clinical evaluation of a dementia cohort and importance of the training group size. Published online ahead of print, 2020 Aug 1. Neuroimage. 2020;222:117221. [doi:10.1016/j.neuroimage.2020.117221](https://www.sciencedirect.com/science/article/pii/S1053811920307072)
+
+DeepUTE has been previously evaluated in the following publications:
+
+Ladefoged CN, Marner L, Hindsholm A, Law I, Højgaard L, Andersen FL. Deep Learning Based Attenuation Correction of PET/MRI in Pediatric Brain Tumor Patients: Evaluation in a Clinical Setting. Front Neurosci. 2019;12:1005. Published 2019 Jan 7. [doi:10.3389/fnins.2018.01005](https://www.frontiersin.org/articles/10.3389/fnins.2018.01005/full)
+
+Øen SK, Keil TM, Berntsen EM, et al. Quantitative and clinical impact of MRI-based attenuation correction methods in 18F-FDG evaluation of dementia. EJNMMI Res. 2019;9(1):83. Published 2019 Aug 24. [doi:10.1186/s13550-019-0553-2](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6708519/)
+
