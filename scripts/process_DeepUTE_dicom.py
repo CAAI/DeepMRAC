@@ -180,11 +180,6 @@ if __name__ == "__main__":
         print("Predicting DeepUTE using %s model" % args.version)
     DeepX = predict_DeepUTE(ute1,ute2,args.version)
     if not check_output(DeepX):
-        if os.path.exists('inphase_flirt.mat'):
-            os.remove('inphase_flirt.mat')
-            os.remove('opposedphase_flirt.mat')
-            os.remove('DeepDixon_flirt.mat')
-        shutil.rmtree(tmpdir)
         exit(-1)
     
     # Convert to DICOM

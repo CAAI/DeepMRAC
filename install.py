@@ -31,17 +31,19 @@ if not os.path.exists('/opt/caai/share/DeepMRAC'):
         zip_ref.extractall('/opt/caai/share/DeepMRAC')
 
 # Install scripts
-if not os.path.exists('/opt/caai/bin/process_DeepDixon_dicom.py'):
-    print("Installing run scripts")    
-    copyfile('scripts/process_DeepDixon_dicom.py', '/opt/caai/bin/process_DeepDixon_dicom.py')
-    copymode('scripts/process_DeepDixon_dicom.py', '/opt/caai/bin/process_DeepDixon_dicom.py')
-    
-    copyfile('scripts/process_DeepUTE_dicom.py', '/opt/caai/bin/process_DeepUTE_dicom.py')
-    copymode('scripts/process_DeepUTE_dicom.py', '/opt/caai/bin/process_DeepUTE_dicom.py')
-    
-    copyfile('scripts/process_DeepT1_dicom.py', '/opt/caai/bin/process_DeepT1_dicom.py')
-    copymode('scripts/process_DeepT1_dicom.py', '/opt/caai/bin/process_DeepT1_dicom.py')
-    
-    copyfile('scripts/DeepMRAC.py', '/opt/caai/rhscripts/DeepMRAC.py')
-    copymode('scripts/DeepMRAC.py', '/opt/caai/rhscripts/DeepMRAC.py')
+print("Installing run scripts")    
+copyfile('scripts/process_DeepDixon_dicom.py', '/opt/caai/bin/process_DeepDixon_dicom.py')
+copymode('scripts/process_DeepDixon_dicom.py', '/opt/caai/bin/process_DeepDixon_dicom.py')
+
+copyfile('scripts/process_DeepUTE_dicom.py', '/opt/caai/bin/process_DeepUTE_dicom.py')
+copymode('scripts/process_DeepUTE_dicom.py', '/opt/caai/bin/process_DeepUTE_dicom.py')
+
+copyfile('scripts/process_DeepT1_dicom.py', '/opt/caai/bin/process_DeepT1_dicom.py')
+copymode('scripts/process_DeepT1_dicom.py', '/opt/caai/bin/process_DeepT1_dicom.py')
+
+copyfile('scripts/process_DeepT1_nii.py', '/opt/caai/bin/process_DeepT1_nii.py')
+copymode('scripts/process_DeepT1_nii.py', '/opt/caai/bin/process_DeepT1_nii.py')
+
+copyfile('scripts/DeepMRAC.py', '/opt/caai/rhscripts/DeepMRAC.py')
+copymode('scripts/DeepMRAC.py', '/opt/caai/rhscripts/DeepMRAC.py')
 

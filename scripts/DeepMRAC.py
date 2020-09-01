@@ -22,27 +22,38 @@ def cutup(data, blck, strd):
     data6 = stride_tricks.as_strided(data, strides=strides, shape=dims)
     return data6
 
+""" 
+Function to check output
+"""
+
+def check_output(x):
+    try:
+        x.shape
+        return True
+    except:
+        return False
+
 """
 Return all combinations of 192x192x16 patches from each image with stride 2
 """
 def get_patches_znorm(vol1,vol2=None,normalize_both=True):
     mean_vol1, std_vol1 = ( np.mean(vol1[np.where(vol1>0)]), np.std(vol1[np.where(vol1>0)]) )
     
-    if vol2:
+    if check_output(vol2):
         mean_vol2, std_vol2 = ( np.mean(vol2[np.where(vol2>0)]), np.std(vol2[np.where(vol2>0)]) )
     
     # STANDARDIZE
     vol1 = np.true_divide( vol1 - mean_vol1, std_vol1 ) if normalize_both else np.true_divide( vol1 - mean_vol2, std_vol2 )
-    if vol2:
+    if check_output(vol2):
         vol2 = np.true_divide( vol2 - mean_vol2, std_vol2 )
 
     patches_vol1 = cutup(vol1,(16,192,192),(2,1,1))
-    if vol2:
+    if check_output(vol2):
         patches_vol2 = cutup(vol2,(16,192,192),(2,1,1))
 
     ijk = patches_vol1.shape[0]*patches_vol1.shape[1]*patches_vol1.shape[2]
     
-    if vol2:
+    if check_output(vol2):
         selected_patches = np.empty((ijk,16,192,192,2), dtype='float32')
         selected_patches[:,:,:,:,0] = np.reshape(patches_vol1,(ijk,16,192,192))
         selected_patches[:,:,:,:,1] = np.reshape(patches_vol2,(ijk,16,192,192))

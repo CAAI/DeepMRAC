@@ -57,7 +57,7 @@ The output will be a folder called DeepUTE/DeepDixon/DeepT1 within the DICOM dat
 
 ### Using python function ( with pre-loaded data )
 ```python
-from rhscripts.DeepMRAC import predict_DeepUTE, predict_DeepDixon
+from rhscripts.DeepMRAC import predict_DeepUTE, predict_DeepDixon, predict_DeepT1
 pseudoCT_UTE = predict_DeepUTE(ute1,ute2)
 pseudoCT_Dixon = predict_DeepDixon(inphase,outphase)
 pseudoCT_T1 = predict_DeepT1(t1)
