@@ -41,9 +41,6 @@ copymode('scripts/process_DeepUTE_dicom.py', '/opt/caai/bin/process_DeepUTE_dico
 copyfile('scripts/process_DeepT1_dicom.py', '/opt/caai/bin/process_DeepT1_dicom.py')
 copymode('scripts/process_DeepT1_dicom.py', '/opt/caai/bin/process_DeepT1_dicom.py')
 
-copyfile('scripts/process_DeepT1_nii.py', '/opt/caai/bin/process_DeepT1_nii.py')
-copymode('scripts/process_DeepT1_nii.py', '/opt/caai/bin/process_DeepT1_nii.py')
-
 copyfile('scripts/DeepMRAC.py', '/opt/caai/rhscripts/DeepMRAC.py')
 copymode('scripts/DeepMRAC.py', '/opt/caai/rhscripts/DeepMRAC.py')
 
